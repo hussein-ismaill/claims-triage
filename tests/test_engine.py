@@ -27,6 +27,13 @@ def test_labelled_dev_cases_v1():
     assert not bad, bad
 
 
+def test_hand_labelled_edge_cases_v1():
+    rows = list(csv.DictReader(open(os.path.join(ROOT, "data", "synthetic_edge_cases.csv"), encoding="utf-8-sig")))
+    bad = [(r["case_id"], decide(normalise(r), P1)[0], r["expected_v1"], r["label_reason"]) for r in rows
+           if decide(normalise(r), P1)[0] != r["expected_v1"]]
+    assert not bad, bad
+
+
 def test_boundary_is_strictly_greater():
     assert decide(base(quote_eur="1500"), P1)[0] == "routine_processing"
     assert decide(base(quote_eur="1500.01"), P1)[0] == "human_review"

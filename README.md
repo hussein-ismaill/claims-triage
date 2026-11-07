@@ -31,7 +31,11 @@ engine/triage.py      rules engine + batch CLI (config-driven)
 engine/report.py      quality report per policy version
 policies/v1.json      policy v1 as config
 policies/v2.json      policy v2 (filled in at the 18:00 change)
-data/                 labelled dev cases (14) and unlabelled practice cases (12)
+data/dev_cases.csv              14 labelled cases (provided)
+data/practice_cases.csv         12 unlabelled cases (provided)
+data/synthetic_edge_cases.csv   37 hand-labelled edge cases (labelled from the policy text, with label_reason)
+data/synthetic_volume.csv       500 unlabelled synthetic claims for UI / dashboard / business case (NOT for accuracy)
+engine/generate_volume.py       regenerates the volume set (distributions are stated assumptions)
 tests/                regression tests
 docs/POLICY.md        policy reference and v2 notes
 docs/PLAN.md          roles, timeline, demo script
